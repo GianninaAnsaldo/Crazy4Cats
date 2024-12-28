@@ -1,0 +1,30 @@
+<div class="container my-5">
+  <h1 class="text-center mb-4">Reacciones</h1>
+
+  <div class="row">
+    <% @posts.each do |post| %>
+      <div class="col-md-6 col-lg-6 mb-3">
+        <div class="card shadow-sm h-100">
+          <div class="card-body">
+            <!-- Título del post -->
+            <h5 class="card-title"><%= post.title %></h5>
+
+            <!-- Tipo de reacción -->
+            <% if post.reactions.find_by(user_id: current_user.id) %>
+               <p class="card-text">
+                  Tu reacción: <strong><%= post.reactions.find_by(user_id: current_user.id).kind.capitalize %></strong>
+                </p>
+            <% else %>
+              <p class="card-text text-muted">No has reaccionado aún.</p>
+            <% end %>
+
+            <!-- Botón de detalles -->
+            <div class="d-grid">
+              <%= link_to "Detalles del Post", post_path(post), class: "btn btn-primary" %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

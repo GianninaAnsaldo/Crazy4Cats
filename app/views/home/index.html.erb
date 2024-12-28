@@ -1,0 +1,20 @@
+<div class="container text-center my-5">
+  <div class="card shadow">
+    <div class="card-body">
+      <h1 class="display-4 text-info">Bienvenidos a <strong>Crazy4Cats</strong> 🐱</h1>
+      <p class="lead text-secondary">
+        Un lugar para los amantes de los gatos donde puedes compartir historias, comentar y reaccionar. 
+      </p>
+      <hr class="my-4">
+      <p class="text-dark-emphasis fs-5">
+        <strong>¿Listo para compartir?</strong> <br> ¡Inicia sesión! o ¡Comenta de forma anónima! 
+      </p>
+      <p class="text-info fs-5 mb-4">
+        <strong>¿Te gustó algo?</strong> <br> ¡Reacciona a las publicaciones y comparte tu amor por los gatos!
+      </p>
+      <a href="<%= user_signed_in? ? new_post_path : new_user_session_path %>" class="btn btn-primary btn-lg px-5">
+        <%= user_signed_in? ? "Crear Publicación" : "Inicia Sesión para Publicar" %>
+      </a>
+    </div>
+  </div>
+</div>
